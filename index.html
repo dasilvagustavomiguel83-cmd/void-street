@@ -1,11 +1,275 @@
 <!doctype html>
-<html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>VOID STREET</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  </head>
-  <body><div id="root"></div><script type="module" src="/src/main.jsx"></script></body>
-</html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<meta name="color-scheme" content="light">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>VOID STREET</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>:root{--black:#0a0a0a;--white:#fff;--g1:#f2f2f2;--g2:#bdbdbd;--g3:#6b6b6b;--g4:#1c1c1c}*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:Inter,system-ui,sans-serif;background:var(--white);color:var(--black);line-height:1.5}a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}h1,h2,h3,.logo,.btn,.hero p{font-family:'Archivo Black',Impact,sans-serif;text-transform:uppercase;letter-spacing:.02em}.header{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;padding:16px 24px;background:var(--black);color:var(--white)}.logo{font-size:1.2rem}.header nav{display:flex;gap:24px;font-size:.9rem;text-transform:uppercase}.header nav a:hover{color:var(--g2)}.burger{display:none;color:var(--white);font-size:1.5rem}.hero{min-height:80vh;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:16px;padding:48px 24px;color:var(--white);background:linear-gradient(135deg,#0a0a0a 40%,#3a3a3a 100%)}.hero p{color:var(--g2);font-size:.9rem}.hero h1{font-size:clamp(3.5rem,14vw,10rem);line-height:.9}.hero span{max-width:420px;color:var(--g2)}.btn{display:inline-block;padding:14px 28px;background:var(--white);color:var(--black);border:2px solid var(--white);font-size:.85rem;transition:.2s}.btn:hover{background:transparent;color:var(--white)}.section:not(.dark) .btn,.section:not(.dark) .btn.ghost{background:var(--black);color:var(--white);border-color:var(--black)}.section:not(.dark) .btn:hover{background:var(--white);color:var(--black)}.section:not(.dark) .btn.ghost{background:transparent;color:var(--black)}.section:not(.dark) .btn.ghost:hover{background:var(--black);color:var(--white)}.link{text-decoration:underline;color:var(--g3);margin:12px 12px 0 0;font-size:.9rem}.section{padding:64px 24px;max-width:1200px;margin:0 auto}.section.dark{max-width:none;background:var(--black);color:var(--white)}.section.dark>*{max-width:1200px;margin-left:auto;margin-right:auto}.section h2{font-size:2rem;margin-bottom:28px}.center{text-align:center;display:flex;flex-direction:column;align-items:center;gap:16px}.muted{color:var(--g3);margin-top:24px}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}.card{position:relative;display:flex;flex-direction:column;gap:6px}.card h3{font-size:.9rem;margin-top:8px}.card p{color:var(--g3)}.dark .card p{color:var(--g2)}.card:hover .pimg{transform:scale(1.02)}.tag{position:absolute;top:10px;left:10px;z-index:2;background:var(--white);color:var(--black);font-size:.65rem;font-style:normal;font-weight:600;padding:3px 8px}.pimg{width:100%;aspect-ratio:4/5;object-fit:cover;transition:.3s}.ph{display:flex;flex-direction:column;align-items:center;justify-content:center;color:rgba(255,255,255,.85)}.ph span{font-family:'Archivo Black',Impact,sans-serif;font-size:2.2rem}.ph small{text-transform:uppercase;letter-spacing:.2em;font-size:.65rem;opacity:.7}.ph.large span{font-size:5rem}.tone-0{background:#111}.tone-1{background:#2a2a2a}.tone-2{background:#4a4a4a}.tone-3{background:#7a7a7a}.tone-4{background:#a8a8a8;color:#111}.collections{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.collection{padding:48px 24px;background:var(--g1);font-family:'Archivo Black',Impact,sans-serif;text-transform:uppercase;transition:.2s}.collection:hover{background:var(--black);color:var(--white)}.filters,.sizes{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px}.chip{padding:8px 18px;border:1.5px solid var(--black);font-size:.85rem}.chip.active,.chip:hover{background:var(--black);color:var(--white)}.product{display:grid;grid-template-columns:1fr 1fr;gap:48px}.info{display:flex;flex-direction:column;gap:14px;align-items:flex-start}.info h1{font-size:2rem}.price{font-size:1.6rem;font-weight:600}.info small{color:var(--g3);text-transform:uppercase;letter-spacing:.15em}.msg{font-weight:600}.row{display:flex;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid var(--g2);flex-wrap:wrap}.thumb{width:72px}.grow{flex:1;display:flex;flex-direction:column;min-width:140px}.grow small{color:var(--g3)}.qty{display:flex;align-items:center;gap:12px}.qty button{width:32px;height:32px;border:1.5px solid var(--black)}.total{display:flex;justify-content:space-between;font-size:1.4rem;padding:24px 0}.contacts{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}.footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding:32px 24px;background:var(--black);color:var(--g2);font-size:.85rem}.footer strong{color:var(--white)}@media (max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}.product{grid-template-columns:1fr;gap:24px}}@media (max-width:700px){.burger{display:block}.header nav{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:var(--black)}.header nav.open{display:flex}.header nav a{padding:16px 24px;border-top:1px solid var(--g4)}.section{padding:40px 16px}.grid{gap:12px}.collections{grid-template-columns:1fr}}</style></head>
+<body><div id="root"></div>
+<script src="https://cdn.jsdelivr.net/npm/react@18.3.1/umd/react.production.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+<script>
+function showErr(m){document.body.insertAdjacentHTML('afterbegin','<pre style="color:#b00;background:#fff;padding:16px;white-space:pre-wrap">Erro: '+m+'</pre>')}
+window.addEventListener('error',function(e){showErr(e.message)});
+window.addEventListener('load',function(){if(!window.React||!window.ReactDOM)showErr('Nao foi possivel carregar as bibliotecas. Verifique a internet.')});
+</script>
+<script>
+const { useState, useEffect, useReducer, createContext, useContext } = React;
+const h = React.createElement;
+const STORE = {
+name: 'VOID STREET',
+whatsapp: '5500000000000',
+instagram: 'voidstreet',
+email: 'contato@voidstreet.com',
+city: 'Brasil (loja 100% online)',
+};
+const money = (v) => v.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+const CATEGORIES = ['Todos', 'Camisetas', 'Moletons', 'Calças Cargo', 'Acessórios'];
+const L = ['P', 'M', 'G', 'GG'];
+const PRODUCTS = [
+{ id: 1, name: 'Camiseta Oversized Void', category: 'Camisetas', price: 139.9, tone: 1, sizes: L, featured: true, isNew: true, description: 'Algodão 240g, caimento oversized e estampa minimalista nas costas.' },
+{ id: 2, name: 'Camiseta Oversized Noir', category: 'Camisetas', price: 129.9, tone: 3, sizes: L, featured: false, isNew: false, description: 'Modelagem ampla, gola reforçada e acabamento premium.' },
+{ id: 3, name: 'Moletom Hoodie Dark', category: 'Moletons', price: 289.9, tone: 0, sizes: L, featured: true, isNew: true, description: 'Moletom flanelado com capuz duplo e bolso canguru.' },
+{ id: 4, name: 'Moletom Crewneck Ash', category: 'Moletons', price: 259.9, tone: 4, sizes: L, featured: false, isNew: false, description: 'Gola redonda, tecido pesado e cinza mescla.' },
+{ id: 5, name: 'Calça Cargo Urban', category: 'Calças Cargo', price: 249.9, tone: 2, sizes: ['38', '40', '42', '44'], featured: true, isNew: false, description: 'Sarja resistente com bolsos laterais e barra ajustável.' },
+{ id: 6, name: 'Calça Cargo Shadow', category: 'Calças Cargo', price: 269.9, tone: 0, sizes: ['38', '40', '42', '44'], featured: false, isNew: true, description: 'Corte relaxado, 6 bolsos e ajuste com cordão.' },
+{ id: 7, name: 'Boné Void Strapback', category: 'Acessórios', price: 89.9, tone: 3, sizes: ['Único'], featured: true, isNew: false, description: 'Boné com aba curva e logo bordado.' },
+{ id: 8, name: 'Bag Tática Street', category: 'Acessórios', price: 119.9, tone: 1, sizes: ['Único'], featured: false, isNew: true, description: 'Pochete transversal com zíperes e ajuste regulável.' },
+];
+async function getProducts() { return PRODUCTS; }
+async function getProduct(id) { return PRODUCTS.find((p) => p.id === Number(id)) || null; }
+async function createCheckout(items, total) {
+return { ok: true, simulated: true, items, total };
+}
+const CartContext = createContext(null);
+const KEY = 'void-street-cart';
+const load = () => { try {
+return JSON.parse(localStorage.getItem(KEY)) || [];
+}
+catch {
+return [];
+} };
+function reducer(items, a) {
+switch (a.type) {
+case 'add': {
+const key = `${a.product.id}-${a.size}`;
+const found = items.find((i) => i.key === key);
+if (found)
+return items.map((i) => (i.key === key ? { ...i, qty: i.qty + 1 } : i));
+return [...items, { key, product: a.product, size: a.size, qty: 1 }];
+}
+case 'qty':
+return items.map((i) => (i.key === a.key ? { ...i, qty: Math.max(1, i.qty + a.delta) } : i));
+case 'remove': return items.filter((i) => i.key !== a.key);
+case 'clear': return [];
+default: return items;
+}
+}
+function CartProvider({ children }) {
+const [items, dispatch] = useReducer(reducer, [], load);
+useEffect(() => { try {
+localStorage.setItem(KEY, JSON.stringify(items));
+}
+catch { } }, [items]);
+const count = items.reduce((s, i) => s + i.qty, 0);
+const total = items.reduce((s, i) => s + i.qty * i.product.price, 0);
+return h(CartContext.Provider, { value: { items, dispatch, count, total } }, children);
+}
+const useCart = () => useContext(CartContext);
+function ProductImage({ product, large }) {
+if (product.image)
+return h("img", { className: "pimg", src: product.image, alt: product.name });
+return (h("div", { className: `pimg ph tone-${product.tone} ${large ? 'large' : ''}`, role: "img", "aria-label": product.name },
+h("span", null, "VOID"),
+h("small", null, product.category)));
+}
+function ProductCard({ product }) {
+return (h("a", { className: "card", href: `#/produto/${product.id}` },
+product.isNew && h("em", { className: "tag" }, "NOVO"),
+h(ProductImage, { product: product }),
+h("h3", null, product.name),
+h("p", null, money(product.price))));
+}
+function Header() {
+const [open, setOpen] = useState(false);
+const { count } = useCart();
+const go = () => setOpen(false);
+return (h("header", { className: "header" },
+h("a", { className: "logo", href: "#/", onClick: go }, "VOID STREET"),
+h("nav", { className: open ? 'open' : '' },
+h("a", { href: "#/", onClick: go }, "In\u00EDcio"),
+h("a", { href: "#/catalogo", onClick: go }, "Cat\u00E1logo"),
+h("a", { href: "#/contato", onClick: go }, "Contato"),
+h("a", { href: "#/carrinho", onClick: go },
+"Carrinho (",
+count,
+")")),
+h("button", { className: "burger", "aria-label": "Menu", onClick: () => setOpen(!open) }, open ? '✕' : '☰')));
+}
+function Footer() {
+return (h("footer", { className: "footer" },
+h("strong", null, STORE.name),
+h("span", null,
+"\u00A9 ",
+new Date().getFullYear(),
+" \u00B7 Todos os direitos reservados"),
+h("a", { href: `https://instagram.com/${STORE.instagram}`, target: "_blank", rel: "noreferrer" },
+"@",
+STORE.instagram)));
+}
+function Home({ products }) {
+const featured = products.filter((p) => p.featured);
+const news = products.filter((p) => p.isNew);
+return (h(React.Fragment, null,
+h("section", { className: "hero" },
+h("p", null, "COLE\u00C7\u00C3O 2026"),
+h("h1", null,
+"VOID",
+h("br", null),
+"STREET"),
+h("span", null, "Streetwear minimalista para quem n\u00E3o segue o padr\u00E3o."),
+h("a", { className: "btn", href: "#/catalogo" }, "Comprar agora")),
+h("section", { className: "section" },
+h("h2", null, "Em destaque"),
+h("div", { className: "grid" }, featured.map((p) => h(ProductCard, { key: p.id, product: p })))),
+h("section", { className: "section dark" },
+h("h2", null, "Novidades"),
+h("div", { className: "grid" }, news.map((p) => h(ProductCard, { key: p.id, product: p })))),
+h("section", { className: "section" },
+h("h2", null, "Cole\u00E7\u00F5es"),
+h("div", { className: "collections" }, ['Camisetas', 'Moletons', 'Calças Cargo', 'Acessórios'].map((c) => (h("a", { key: c, className: "collection", href: "#/catalogo", onClick: () => sessionStorage.setItem('void-cat', c) },
+c,
+" \u2192")))))));
+}
+function Catalog({ products }) {
+const [cat, setCat] = useState(() => {
+const c = sessionStorage.getItem('void-cat');
+sessionStorage.removeItem('void-cat');
+return c || 'Todos';
+});
+const list = cat === 'Todos' ? products : products.filter((p) => p.category === cat);
+return (h("section", { className: "section" },
+h("h2", null, "Cat\u00E1logo"),
+h("div", { className: "filters" }, CATEGORIES.map((c) => (h("button", { key: c, className: c === cat ? 'chip active' : 'chip', onClick: () => setCat(c) }, c)))),
+h("div", { className: "grid" }, list.map((p) => h(ProductCard, { key: p.id, product: p })))));
+}
+function Product({ id }) {
+const [product, setProduct] = useState(undefined);
+const [size, setSize] = useState(null);
+const [msg, setMsg] = useState('');
+const { dispatch } = useCart();
+useEffect(() => { setSize(null); setMsg(''); getProduct(id).then(setProduct); }, [id]);
+if (product === undefined)
+return h("p", { className: "section" }, "Carregando\u2026");
+if (!product)
+return h("p", { className: "section" },
+"Produto n\u00E3o encontrado. ",
+h("a", { href: "#/catalogo" }, "Voltar ao cat\u00E1logo"));
+const add = () => {
+if (!size)
+return setMsg('Escolha um tamanho.');
+dispatch({ type: 'add', product, size });
+setMsg('Adicionado ao carrinho ✓');
+};
+return (h("section", { className: "section product" },
+h(ProductImage, { product: product, large: true }),
+h("div", { className: "info" },
+h("small", null, product.category),
+h("h1", null, product.name),
+h("p", { className: "price" }, money(product.price)),
+h("p", null, product.description),
+h("h4", null, "Tamanho"),
+h("div", { className: "sizes" }, product.sizes.map((s) => (h("button", { key: s, className: s === size ? 'chip active' : 'chip', onClick: () => { setSize(s); setMsg(''); } }, s)))),
+h("button", { className: "btn", onClick: add }, "Adicionar ao carrinho"),
+msg && h("p", { className: "msg" }, msg),
+h("a", { href: "#/carrinho" }, "Ver carrinho \u2192"))));
+}
+function Cart() {
+const { items, dispatch, total } = useCart();
+const [done, setDone] = useState(null);
+const finish = async () => setDone(await createCheckout(items, total));
+const wa = () => {
+const lines = items.map((i) => `${i.qty}x ${i.product.name} (${i.size})`).join('\n');
+const text = `Olá! Quero finalizar meu pedido:\n${lines}\nTotal: ${money(total)}`;
+return `https://wa.me/${STORE.whatsapp}?text=${encodeURIComponent(text)}`;
+};
+if (done)
+return (h("section", { className: "section center" },
+h("h2", null, "Pedido de demonstra\u00E7\u00E3o"),
+h("p", null, "O pagamento online ainda n\u00E3o est\u00E1 integrado. Para concluir, envie o pedido pelo WhatsApp:"),
+h("a", { className: "btn", href: wa(), target: "_blank", rel: "noreferrer" }, "Enviar pelo WhatsApp"),
+h("button", { className: "link", onClick: () => setDone(null) }, "Voltar ao carrinho")));
+if (!items.length)
+return (h("section", { className: "section center" },
+h("h2", null, "Seu carrinho est\u00E1 vazio"),
+h("a", { className: "btn", href: "#/catalogo" }, "Ver cat\u00E1logo")));
+return (h("section", { className: "section" },
+h("h2", null, "Carrinho"),
+items.map((i) => (h("div", { className: "row", key: i.key },
+h("div", { className: "thumb" },
+h(ProductImage, { product: i.product })),
+h("div", { className: "grow" },
+h("strong", null, i.product.name),
+h("small", null,
+"Tamanho ",
+i.size,
+" \u00B7 ",
+money(i.product.price))),
+h("div", { className: "qty" },
+h("button", { onClick: () => dispatch({ type: 'qty', key: i.key, delta: -1 }) }, "\u2212"),
+h("span", null, i.qty),
+h("button", { onClick: () => dispatch({ type: 'qty', key: i.key, delta: 1 }) }, "+")),
+h("strong", null, money(i.qty * i.product.price)),
+h("button", { className: "link", onClick: () => dispatch({ type: 'remove', key: i.key }) }, "Remover")))),
+h("div", { className: "total" },
+h("span", null, "Total"),
+h("strong", null, money(total))),
+h("button", { className: "btn", onClick: finish }, "Finalizar compra"),
+h("button", { className: "link", onClick: () => dispatch({ type: 'clear' }) }, "Esvaziar carrinho")));
+}
+function Contact() {
+return (h("section", { className: "section" },
+h("h2", null, "Contato"),
+h("p", null,
+"A ",
+STORE.name,
+" \u00E9 uma marca de streetwear minimalista. Fale com a gente:"),
+h("div", { className: "contacts" },
+h("a", { className: "btn", href: `https://wa.me/${STORE.whatsapp}`, target: "_blank", rel: "noreferrer" }, "WhatsApp"),
+h("a", { className: "btn ghost", href: `https://instagram.com/${STORE.instagram}`, target: "_blank", rel: "noreferrer" },
+"Instagram @",
+STORE.instagram),
+h("a", { className: "btn ghost", href: `mailto:${STORE.email}` }, STORE.email)),
+h("p", { className: "muted" },
+STORE.city,
+" \u00B7 Atendimento de segunda a sexta, 9h \u00E0s 18h.")));
+}
+const getPath = () => window.location.hash.replace(/^#/, '') || '/';
+function App() {
+const [path, setPath] = useState(getPath);
+const [products, setProducts] = useState([]);
+useEffect(() => {
+getProducts().then(setProducts);
+const onChange = () => { setPath(getPath()); window.scrollTo(0, 0); };
+window.addEventListener('hashchange', onChange);
+return () => window.removeEventListener('hashchange', onChange);
+}, []);
+let page;
+if (path.startsWith('/produto/'))
+page = h(Product, { id: path.split('/')[2] });
+else if (path === '/catalogo')
+page = h(Catalog, { products: products });
+else if (path === '/carrinho')
+page = h(Cart, null);
+else if (path === '/contato')
+page = h(Contact, null);
+else
+page = h(Home, { products: products });
+return (h(React.Fragment, null,
+h(Header, null),
+h("main", null, page),
+h(Footer, null)));
+}
+ReactDOM.createRoot(document.getElementById('root')).render(h(CartProvider, null,
+h(App, null)));
+</script></body></html>
