@@ -17,6 +17,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .collection:hover{background:var(--black)}
 .logo,.hero h1,.footer strong,.ph span{font-family:'Josefin Sans',system-ui,sans-serif;font-weight:300;letter-spacing:.08em}
 .logo{font-weight:400}
+.ph{gap:8px}.ph span{font-size:.95rem;letter-spacing:.3em}.ph.large span{font-size:1.6rem}.thumb .ph span,.thumb .ph small{display:none}
 </style></head>
 <body><div id="root"></div>
 <script src="https://cdn.jsdelivr.net/npm/react@18.3.1/umd/react.production.min.js"></script>
@@ -31,9 +32,9 @@ const { useState, useEffect, useReducer, createContext, useContext } = React;
 const h = React.createElement;
 const STORE = {
 name: 'VYRON STREET',
-whatsapp: '5500000000000',
-instagram: 'district09',
-email: 'contato@district09.com',
+whatsapp: '5514997039809',
+instagram: 'vyronstreet',
+email: 'contato@vyronstreet.com',
 city: 'Brasil (loja 100% online)',
 };
 const money = (v) => v.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
@@ -91,196 +92,28 @@ const total = items.reduce((s, i) => s + i.qty * i.product.price, 0);
 return h(CartContext.Provider, { value: { items, dispatch, count, total } }, children);
 }
 const useCart = () => useContext(CartContext);
+const ART = {
+Camisetas: ['M30 20 L10 36 L20 52 L30 45 L30 106 L70 106 L70 45 L80 52 L90 36 L70 20 Q50 34 30 20Z'],
+Moletons: ['M34 26 L8 64 L21 72 L30 54 L30 108 L70 108 L70 54 L79 72 L92 64 L66 26 Q50 38 34 26Z'],
+'Calças Cargo': ['M30 14 L70 14 L75 112 L54 112 L50 46 L46 112 L25 112Z'],
+Bag: ['M22 48 Q22 40 30 40 L70 40 Q78 40 78 48 L78 92 Q78 100 70 100 L30 100 Q22 100 22 92Z'],
+Cap: ['M20 76 Q20 36 50 36 Q80 36 80 76Z', 'M16 78 L96 78 Q96 88 66 88 L16 88Z'],
+};
+const DET = {
+Camisetas: ['M40 22 Q50 34 60 22'],
+Moletons: ['M40 26 Q50 44 60 26', 'M50 40 L50 62', 'M38 84 L62 84 L66 102 L34 102Z'],
+'Calças Cargo': ['M50 14 L50 46', 'M30 66 L42 66 L42 84 L30 84Z', 'M58 66 L70 66 L70 84 L58 84Z'],
+Bag: ['M22 58 L78 58', 'M46 40 L46 58', 'M54 40 L54 58'],
+Cap: ['M50 36 L50 76'],
+};
+function Garment({ product }) {
+const k = product.category === 'Acessórios' ? (/bag/i.test(product.name) ? 'Bag' : 'Cap') : product.category;
+return h("svg", { viewBox: "0 0 100 125", width: "58%", fill: "currentColor", "aria-hidden": "true" },
+ART[k].map((d, i) => h("path", { key: 'a' + i, d })),
+DET[k].map((d, i) => h("path", { key: 'd' + i, d, fill: "none", stroke: "#888", strokeWidth: 1.2 })));
+}
 function ProductImage({ product, large }) {
 if (product.image)
 return h("img", { className: "pimg", src: product.image, alt: product.name });
 return (h("div", { className: `pimg ph tone-${product.tone} ${large ? 'large' : ''}`, role: "img", "aria-label": product.name },
-h("span", null, "VYRON"),
-h("small", null, product.category)));
-}
-function ProductCard({ product }) {
-return (h("a", { className: "card", href: `#produto-${product.id}` },
-product.isNew && h("em", { className: "tag" }, "NOVO"),
-h(ProductImage, { product: product }),
-h("h3", null, product.name),
-h("p", null, money(product.price))));
-}
-function Header() {
-const [open, setOpen] = useState(false);
-const { count } = useCart();
-const go = () => setOpen(false);
-return (h("header", { className: "header" },
-h("a", { className: "logo", href: "#inicio", onClick: go }, "VYRON STREET"),
-h("nav", { className: open ? 'open' : '' },
-h("a", { href: "#inicio", onClick: go }, "In\u00EDcio"),
-h("a", { href: "#catalogo", onClick: go }, "Cat\u00E1logo"),
-h("a", { href: "#contato", onClick: go }, "Contato"),
-h("a", { href: "#carrinho", onClick: go },
-"Carrinho (",
-count,
-")")),
-h("button", { className: "burger", "aria-label": "Menu", onClick: () => setOpen(!open) }, open ? '✕' : '☰')));
-}
-function Footer() {
-return (h("footer", { className: "footer" },
-h("strong", null, STORE.name),
-h("span", null,
-"\u00A9 ",
-new Date().getFullYear(),
-" \u00B7 Todos os direitos reservados"),
-h("a", { href: `https://instagram.com/${STORE.instagram}`, target: "_blank", rel: "noreferrer" },
-"@",
-STORE.instagram)));
-}
-function Home({ products }) {
-const featured = products.filter((p) => p.featured);
-const news = products.filter((p) => p.isNew);
-return (h(React.Fragment, null,
-h("section", { className: "hero" },
-h("p", null, "COLE\u00C7\u00C3O 2026"),
-h("h1", null,
-"VYRON",
-h("br", null),
-"STREET"),
-h("span", null, "Streetwear minimalista para quem n\u00E3o segue o padr\u00E3o."),
-h("a", { className: "btn", href: "#catalogo" }, "Comprar agora")),
-h("section", { className: "section" },
-h("h2", null, "Em destaque"),
-h("div", { className: "grid" }, featured.map((p) => h(ProductCard, { key: p.id, product: p })))),
-h("section", { className: "section dark" },
-h("h2", null, "Novidades"),
-h("div", { className: "grid" }, news.map((p) => h(ProductCard, { key: p.id, product: p })))),
-h("section", { className: "section" },
-h("h2", null, "Cole\u00E7\u00F5es"),
-h("div", { className: "collections" }, ['Camisetas', 'Moletons', 'Calças Cargo', 'Acessórios'].map((c) => (h("a", { key: c, className: "collection", href: "#catalogo", onClick: () => pickCat(c) },
-c,
-" \u2192")))))));
-}
-function Catalog({ products }) {
-const [cat, setCat] = useState(() => takeCat() || 'Todos');
-const list = cat === 'Todos' ? products : products.filter((p) => p.category === cat);
-return (h("section", { className: "section" },
-h("h2", null, "Cat\u00E1logo"),
-h("div", { className: "filters" }, CATEGORIES.map((c) => (h("button", { key: c, className: c === cat ? 'chip active' : 'chip', onClick: () => setCat(c) }, c)))),
-h("div", { className: "grid" }, list.map((p) => h(ProductCard, { key: p.id, product: p })))));
-}
-function Product({ id }) {
-const [product, setProduct] = useState(undefined);
-const [size, setSize] = useState(null);
-const [msg, setMsg] = useState('');
-const { dispatch } = useCart();
-useEffect(() => { setSize(null); setMsg(''); getProduct(id).then(setProduct); }, [id]);
-if (product === undefined)
-return h("p", { className: "section" }, "Carregando\u2026");
-if (!product)
-return h("p", { className: "section" },
-"Produto n\u00E3o encontrado. ",
-h("a", { href: "#catalogo" }, "Voltar ao cat\u00E1logo"));
-const add = () => {
-if (!size)
-return setMsg('Escolha um tamanho.');
-dispatch({ type: 'add', product, size });
-setMsg('Adicionado ao carrinho ✓');
-};
-return (h("section", { className: "section product" },
-h(ProductImage, { product: product, large: true }),
-h("div", { className: "info" },
-h("small", null, product.category),
-h("h1", null, product.name),
-h("p", { className: "price" }, money(product.price)),
-h("p", null, product.description),
-h("h4", null, "Tamanho"),
-h("div", { className: "sizes" }, product.sizes.map((s) => (h("button", { key: s, className: s === size ? 'chip active' : 'chip', onClick: () => { setSize(s); setMsg(''); } }, s)))),
-h("button", { className: "btn", onClick: add }, "Adicionar ao carrinho"),
-msg && h("p", { className: "msg" }, msg),
-h("a", { href: "#carrinho" }, "Ver carrinho \u2192"))));
-}
-function Cart() {
-const { items, dispatch, total } = useCart();
-const [done, setDone] = useState(null);
-const finish = async () => setDone(await createCheckout(items, total));
-const wa = () => {
-const lines = items.map((i) => `${i.qty}x ${i.product.name} (${i.size})`).join('\n');
-const text = `Olá! Quero finalizar meu pedido:\n${lines}\nTotal: ${money(total)}`;
-return `https://wa.me/${STORE.whatsapp}?text=${encodeURIComponent(text)}`;
-};
-if (done)
-return (h("section", { className: "section center" },
-h("h2", null, "Pedido de demonstra\u00E7\u00E3o"),
-h("p", null, "O pagamento online ainda n\u00E3o est\u00E1 integrado. Para concluir, envie o pedido pelo WhatsApp:"),
-h("a", { className: "btn", href: wa(), target: "_blank", rel: "noreferrer" }, "Enviar pelo WhatsApp"),
-h("button", { className: "link", onClick: () => setDone(null) }, "Voltar ao carrinho")));
-if (!items.length)
-return (h("section", { className: "section center" },
-h("h2", null, "Seu carrinho est\u00E1 vazio"),
-h("a", { className: "btn", href: "#catalogo" }, "Ver cat\u00E1logo")));
-return (h("section", { className: "section" },
-h("h2", null, "Carrinho"),
-items.map((i) => (h("div", { className: "row", key: i.key },
-h("div", { className: "thumb" },
-h(ProductImage, { product: i.product })),
-h("div", { className: "grow" },
-h("strong", null, i.product.name),
-h("small", null,
-"Tamanho ",
-i.size,
-" \u00B7 ",
-money(i.product.price))),
-h("div", { className: "qty" },
-h("button", { onClick: () => dispatch({ type: 'qty', key: i.key, delta: -1 }) }, "\u2212"),
-h("span", null, i.qty),
-h("button", { onClick: () => dispatch({ type: 'qty', key: i.key, delta: 1 }) }, "+")),
-h("strong", null, money(i.qty * i.product.price)),
-h("button", { className: "link", onClick: () => dispatch({ type: 'remove', key: i.key }) }, "Remover")))),
-h("div", { className: "total" },
-h("span", null, "Total"),
-h("strong", null, money(total))),
-h("button", { className: "btn", onClick: finish }, "Finalizar compra"),
-h("button", { className: "link", onClick: () => dispatch({ type: 'clear' }) }, "Esvaziar carrinho")));
-}
-function Contact() {
-return (h("section", { className: "section" },
-h("h2", null, "Contato"),
-h("p", null,
-"A ",
-STORE.name,
-" \u00E9 uma marca de streetwear minimalista. Fale com a gente:"),
-h("div", { className: "contacts" },
-h("a", { className: "btn", href: `https://wa.me/${STORE.whatsapp}`, target: "_blank", rel: "noreferrer" }, "WhatsApp"),
-h("a", { className: "btn ghost", href: `https://instagram.com/${STORE.instagram}`, target: "_blank", rel: "noreferrer" },
-"Instagram @",
-STORE.instagram),
-h("a", { className: "btn ghost", href: `mailto:${STORE.email}` }, STORE.email)),
-h("p", { className: "muted" },
-STORE.city,
-" \u00B7 Atendimento de segunda a sexta, 9h \u00E0s 18h.")));
-}
-const getPath = () => window.location.hash.replace(/^#/, '') || 'inicio';
-function App() {
-const [path, setPath] = useState(getPath);
-const [products, setProducts] = useState([]);
-useEffect(() => {
-getProducts().then(setProducts);
-const onChange = () => { setPath(getPath()); window.scrollTo(0, 0); };
-window.addEventListener('hashchange', onChange);
-return () => window.removeEventListener('hashchange', onChange);
-}, []);
-let page;
-if (path.startsWith('produto-'))
-page = h(Product, { id: path.slice(8) });
-else if (path === 'catalogo')
-page = h(Catalog, { products: products });
-else if (path === 'carrinho')
-page = h(Cart, null);
-else if (path === 'contato')
-page = h(Contact, null);
-else
-page = h(Home, { products: products });
-return (h(React.Fragment, null,
-h(Header, null),
-h("main", null, page),
-h(Footer, null)));
-}
-ReactDOM.createRoot(document.getElementById('root')).render(h(CartProvider, null,
-h(App, null)));
-</script></body></html>
+h(Garment
